@@ -24,11 +24,23 @@
         <maven.compiler.release>17</maven.compiler.release>
     </properties>
     <dependencies>
-        <!-- Puedes agregar aquí dependencias como junit para pruebas -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
-            <!-- Puedes agregar plugins como maven-compiler-plugin si lo necesitas -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <mainClass>com.dnlcode.api_toolkit.ApiToolkitApplication</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
