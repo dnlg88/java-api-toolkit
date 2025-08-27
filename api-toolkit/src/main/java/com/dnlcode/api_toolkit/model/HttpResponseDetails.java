@@ -74,4 +74,91 @@ public class HttpResponseDetails {
     public void setRedirectUris(List<String> redirectUris) {
         this.redirectUris = redirectUris;
     }
+
+    public static class Builder {
+        private String url;
+        private String method;
+        private Map<String, List<String>> headers;
+        private String body;
+        private long responseTimestamp;
+        private int statusCode;
+        private HttpClient.Version protocolVersion;
+        private String uri;
+        private long elapsedTime;
+        private String errorMessage;
+        private List<String> cookies;
+        private List<String> redirectUris;
+
+        public Builder(String url, String method) {
+            this.url = url;
+            this.method = method;
+        }
+
+        public Builder headers(Map<String, List<String>> headers) {
+            this.headers = headers;
+            return this;
+        }
+
+        public Builder body(String body) {
+            this.body = body;
+            return this;
+        }
+
+        public Builder responseTimestamp(long responseTimestamp) {
+            this.responseTimestamp = responseTimestamp;
+            return this;
+        }
+
+        public Builder statusCode(int statusCode) {
+            this.statusCode = statusCode;
+            return this;
+        }
+
+        public Builder protocolVersion(HttpClient.Version protocolVersion) {
+            this.protocolVersion = protocolVersion;
+            return this;
+        }
+
+        public Builder uri(String uri) {
+            this.uri = uri;
+            return this;
+        }
+
+        public Builder elapsedTime(long elapsedTime) {
+            this.elapsedTime = elapsedTime;
+            return this;
+        }
+
+        public Builder errorMessage(String errorMessage) {
+            this.errorMessage = errorMessage;
+            return this;
+        }
+
+        public Builder cookies(List<String> cookies) {
+            this.cookies = cookies;
+            return this;
+        }
+
+        public Builder redirectUris(List<String> redirectUris) {
+            this.redirectUris = redirectUris;
+            return this;
+        }
+
+        public HttpResponseDetails build() {
+            HttpResponseDetails responseDetails = new HttpResponseDetails();
+            responseDetails.setUrl(this.url);
+            responseDetails.setMethod(this.method);
+            responseDetails.setHeaders(this.headers);
+            responseDetails.setBody(this.body);
+            responseDetails.setResponseTimestamp(this.responseTimestamp);
+            responseDetails.setStatusCode(this.statusCode);
+            responseDetails.setProtocolVersion(this.protocolVersion);
+            responseDetails.setUri(this.uri);
+            responseDetails.setElapsedTime(this.elapsedTime);
+            responseDetails.setErrorMessage(this.errorMessage);
+            responseDetails.setCookies(this.cookies);
+            responseDetails.setRedirectUris(this.redirectUris);
+            return responseDetails;
+        }
+    }
 }
